@@ -6,16 +6,16 @@
 /*   By: wiboonpr <wiboonpr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 14:10:56 by wiboonpr          #+#    #+#             */
-/*   Updated: 2025/11/24 14:10:57 by wiboonpr         ###   ########.fr       */
+/*   Updated: 2025/12/19 14:36:31 by wiboonpr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	free_stack(Stack **a)
+void	free_stack(t_stack **a)
 {
-	Stack	*tmp;
-	Stack	*curr;
+	t_stack	*tmp;
+	t_stack	*curr;
 
 	if (!a)
 		return ;

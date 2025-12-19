@@ -6,15 +6,15 @@
 /*   By: wiboonpr <wiboonpr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 14:10:26 by wiboonpr          #+#    #+#             */
-/*   Updated: 2025/11/24 14:10:29 by wiboonpr         ###   ########.fr       */
+/*   Updated: 2025/12/19 14:39:32 by wiboonpr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	push(Stack **src, Stack **dst)
+void	push(t_stack **src, t_stack **dst)
 {
-	Stack	*to_be_pushed;
+	t_stack	*to_be_pushed;
 
 	if (!*src)
 		return ;
@@ -36,13 +36,13 @@ void	push(Stack **src, Stack **dst)
 	}
 }
 
-void	pa(Stack **a, Stack **b)
+void	pa(t_stack **a, t_stack **b)
 {
-	push(b, a); 
+	push(b, a);
 	write(1, "pa\n", 3);
 }
 
-void	pb(Stack **a, Stack **b)
+void	pb(t_stack **a, t_stack **b)
 {
 	push(a, b);
 	write(1, "pb\n", 3);

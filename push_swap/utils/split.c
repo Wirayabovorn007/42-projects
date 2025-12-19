@@ -6,7 +6,7 @@
 /*   By: wiboonpr <wiboonpr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 14:11:30 by wiboonpr          #+#    #+#             */
-/*   Updated: 2025/11/24 14:11:32 by wiboonpr         ###   ########.fr       */
+/*   Updated: 2025/12/19 14:45:41 by wiboonpr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	skip_and_count_len(char **s, int *len, char c, int op)
 char	**split_num(char *s, char c)
 {
 	char		**arr;
-	char	*temp;
+	char		*temp;
 	int			i;
 	int			words;
 	int			len;

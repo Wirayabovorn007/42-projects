@@ -6,13 +6,13 @@
 /*   By: wiboonpr <wiboonpr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 14:10:42 by wiboonpr          #+#    #+#             */
-/*   Updated: 2025/11/24 14:10:45 by wiboonpr         ###   ########.fr       */
+/*   Updated: 2025/12/19 14:41:00 by wiboonpr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	sorted(Stack *a)
+int	sorted(t_stack *a)
 {
 	if (!a)
 		return (1);
@@ -25,22 +25,22 @@ int	sorted(Stack *a)
 	return (1);
 }
 
-void	sort_three(Stack **a)
+void	sort_three(t_stack **a)
 {
-	Stack	*biggest;
+	t_stack	*biggest;
 
 	biggest = get_max(*a);
 	if (biggest == *a)
 		ra(a);
 	else if ((*a)->next == biggest)
 		rra(a);
-	if ((*a)->value > (*a)->next->value) //bottom is biggest
+	if ((*a)->value > (*a)->next->value)
 		sa(a);
 }
 
-void	smallest_to_top(Stack **a)
+void	smallest_to_top(t_stack **a)
 {
-	Stack	*min;
+	t_stack	*min;
 
 	min = get_min(*a);
 	while (*a != min)
@@ -52,7 +52,7 @@ void	smallest_to_top(Stack **a)
 	}
 }
 
-void	sort_big_stack(Stack **a, Stack **b)
+void	sort_big_stack(t_stack **a, t_stack **b)
 {
 	int	len_a;
 
@@ -78,7 +78,7 @@ void	sort_big_stack(Stack **a, Stack **b)
 	smallest_to_top(a);
 }
 
-void	sort_stack(Stack** a, Stack **b)
+void	sort_stack(t_stack **a, t_stack **b)
 {
 	if (len_stack(*a) == 2)
 		sa(a);

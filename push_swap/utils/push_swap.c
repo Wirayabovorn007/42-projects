@@ -6,7 +6,7 @@
 /*   By: wiboonpr <wiboonpr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 14:11:26 by wiboonpr          #+#    #+#             */
-/*   Updated: 2025/11/24 14:11:27 by wiboonpr         ###   ########.fr       */
+/*   Updated: 2025/12/19 14:36:31 by wiboonpr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	check_input(int *must_free_args, int argc,
 
 int	push_swap(int argc, char *argv[])
 {
-	Stack	*a;
-	Stack	*b;
+	t_stack	*a;
+	t_stack	*b;
 	char	**args_to_process;
 	int		must_free_args;	
 

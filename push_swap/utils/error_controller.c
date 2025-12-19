@@ -6,15 +6,15 @@
 /*   By: wiboonpr <wiboonpr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 14:10:51 by wiboonpr          #+#    #+#             */
-/*   Updated: 2025/11/24 14:10:54 by wiboonpr         ###   ########.fr       */
+/*   Updated: 2025/12/19 14:43:00 by wiboonpr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int is_valid_number_format(char *str)
+int	is_valid_number_format(char *str)
 {
-	int i;
+	int	i;
 
 	if (!str || !str[0])
 		return (0);
@@ -32,7 +32,7 @@ int is_valid_number_format(char *str)
 	return (1);
 }
 
-int has_duplicates_or_overflow(char *argv[])
+int	has_duplicates_or_overflow(char *argv[])
 {
 	int		i;
 	int		j;
