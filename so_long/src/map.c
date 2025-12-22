@@ -42,12 +42,12 @@ int	read_map(const char *filename)
 	line = get_next_line(fd); //check first line
 	if (line)
 	{
-		validate_line(line, c, p, e, 1);
+		validate_line(line, &c, &p, &e, 1);
 		free(line);
 	}
 	while ((line = get_next_line(fd)) != NULL) //check lines
 	{
-		validate_line(line, c, p, e, 1);
+		validate_line(line, &c, &p, &e, 1);
 		free(line);
 	}
 
