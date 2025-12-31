@@ -44,13 +44,13 @@ $(CLIENT_BONUS): $(OBJ_C_BONUS) $(PRINTF_LIB)
 %.o: %.c
 	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 
-
 clean:
 	$(RM) $(OBJS_C) $(OBJS_S)
+	$(RM) $(OBJ_C_BONUS) $(OBJ_S_BONUS)
 	@make clean -C $(PRINTF_DIR)
 
 fclean: clean
-	$(RM) $(CLIENT) $(SERVER)
+	$(RM) $(CLIENT) $(SERVER) $(CLIENT_BONUS) $(SERVER_BONUS) 
 	@make fclean -C $(PRINTF_DIR)
 
 re: fclean all

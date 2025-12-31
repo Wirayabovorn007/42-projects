@@ -3,7 +3,7 @@
 
 void	ack_handler(int signal)
 {
-	if (signal == SIGUSR1)
+	if (signal == SIGUSR2)
 		ft_printf("Succes: Message received by server.\n");
 	exit(0);
 }
