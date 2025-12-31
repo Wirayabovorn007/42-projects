@@ -25,5 +25,6 @@ int	main(int argc, char *argv[])
 		send_bit(server_pid, str[i]);
 		i++;
 	}
+	send_bit(server_pid, '\0');
 	return (0);
 }

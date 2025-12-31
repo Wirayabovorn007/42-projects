@@ -64,7 +64,10 @@ void	bit_to_str(int signal)
 	bit++;
 	if (bit == 8)
 	{
-		ft_printf("%c", c);
+		if (c == '\0')
+			ft_printf("\n");
+		else
+			ft_printf("%c", c);
 		bit = 0;
 		c = 0;
 	}

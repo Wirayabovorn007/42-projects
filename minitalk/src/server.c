@@ -17,6 +17,5 @@ int	main(int argc, char *argv[])
 	sigaction(SIGUSR2, &sa, NULL);
 	while (1)
 		pause();
-	ft_printf("\n");
 	return (0);
 }
