@@ -83,9 +83,3 @@ int	all_num(char *str)
 			return (-1);
 	return (1);
 }
-
-void	confirm_message(int signal)
-{
-	if (signal == SIGUSR1)
-		ft_printf("Message received\n");
-}
