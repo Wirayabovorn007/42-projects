@@ -9,13 +9,13 @@ int	main(int argc, char *argv[])
 
 	if (argc != 3 || !all_num(argv[1]))
 	{
-		ft_printf("Error: wrong arguments\n");
+		ft_printf("Error: wrong arguments.\n");
 		return (1);
 	}
 	server_pid = ft_atoi(argv[1]);
 	if (server_pid <= 0)
 	{
-		ft_printf("Error: Invalid PID\n");
+		ft_printf("Error: Invalid PID.\n");
 		return (1);
 	}
 	i = 0;

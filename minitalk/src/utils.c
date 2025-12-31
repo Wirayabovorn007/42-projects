@@ -34,9 +34,21 @@ void	send_bit(int server_pid, char c)
 	while (i < 8)
 	{
 		if ((c >> i) & 1)
-			kill(server_pid, SIGUSR1); //1
+		{
+			if (kill(server_pid, SIGUSR1) == -1) //1
+			{
+				ft_printf("Error: Signal failed. PID might be wrong.\n");
+				exit(1);
+			}
+		}
 		else
-			kill(server_pid, SIGUSR2); //0
+		{
+			if (kill(server_pid, SIGUSR2) == -1) //0
+			{
+				ft_printf("Error: Signal failed. PID might be wrong.\n");
+				exit(1);
+			}
+		}
 		usleep(500);
 		i++;
 	}
