@@ -1,7 +1,7 @@
 
 #include "../include/minitalk_bonus.h"
 
-void	bit_to_str(int signal, siginfo_t *info, void *context)
+void	bit_to_str_bonus(int signal, siginfo_t *info, void *context)
 {
 	static int	bit;
 	static	char	c;
@@ -15,7 +15,8 @@ void	bit_to_str(int signal, siginfo_t *info, void *context)
 		if (c == '\0')
 		{
 			ft_printf("\n");
-			kill(info->si_pid, SIGUSR2);
+			if (info->si_pid != 0)
+				kill(info->si_pid, SIGUSR2);
 		}
 		else
 			ft_printf("%c", c);
@@ -36,7 +37,7 @@ int	main(int argc, char *argv[])
 	}
 	pid = getpid();
 	ft_printf("Server PID: %d\n", pid);
-	sa.sa_sigaction = bit_to_str;
+	sa.sa_sigaction = bit_to_str_bonus;
 	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);
 	sigaction(SIGUSR1, &sa, NULL);
