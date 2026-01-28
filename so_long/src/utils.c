@@ -19,7 +19,7 @@ void	free_arr(char **arr)
 	i = -1;
 	while (arr[++i])
 	{
-		// printf("%s\n", arr[i]);
+		printf("%s\n", arr[i]);
 		free(arr[i]);
 	}
 	free(arr);

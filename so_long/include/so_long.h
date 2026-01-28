@@ -10,7 +10,7 @@
 #include <fcntl.h>
 #include "../src/get_next_line/get_next_line.h"
 
-char	**read_map(char *path);
+char	**read_map(char *path, int argc);
 char	**map_err(char *type);
 void	free_arr(char **arr);
 int		len(char *str);

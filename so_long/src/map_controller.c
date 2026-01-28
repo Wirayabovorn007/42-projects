@@ -117,7 +117,7 @@ char **validate_map(char **arr, int line_count)
 	return (arr);
 }
 
-char	**read_map(char *path)
+char	**read_map(char *path, int argc)
 {
 	int		fd;
 	int		i;
@@ -128,7 +128,7 @@ char	**read_map(char *path)
 
 	fd = open(path, O_RDONLY);
 	line_count = get_line_count(path);
-	if (fd < 0 || line_count < 0)
+	if (fd < 0 || line_count < 0 || argc != 2)
 		return (map_err("Empty file or open/read error."));
 	i = 0;
 	line_arr = malloc(sizeof(char *) * (line_count + 1));

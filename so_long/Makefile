@@ -1,31 +1,42 @@
-NAME = so_long
-CC = cc
-FLAGS = -Wall -Wextra -Werror
-RM = rm
+NAME        = so_long
+CC          = cc
+CFLAGS      = -Wall -Wextra -Werror
 
-GNL_DIR = src/get_next_line/
-SRC_DIR = src/
-INC_DIR = include/
+SRC_DIR     = src/
+GNL_DIR     = src/get_next_line/
+INC_DIR     = include/
 
-GNL_FILES = get_next_line.c  get_next_line_utils.c
-SRC_FILES = get_next_line_utils.c  utils.c get_next_line.c  map_controller.c
-SRC_OBJS = $(addprefix $(SRC_DIR), $(SRC_FILES))
-GNL_OBJS = $(addprefix $(GNL_DIR), $(GNL_FILES))
 
-$(SRC_OBJS)%.o: %.c
-$(GNL_OBJS)%.o: %.c
+# MLX_FLAGS   = -Lminilibx-linux -lmlx -lXext -lX11 -lm
+# INCLUDES    = -I$(INC_DIR) -Iminilibx-linux
+
+INCLUDES    = -I$(INC_DIR)
+
+SRC_FILES   = map_controller.c utils.c
+GNL_FILES   = get_next_line.c get_next_line_utils.c
+MAIN_FILE   = main.c
+
+
+SRCS        = $(addprefix $(SRC_DIR), $(SRC_FILES)) \
+              $(addprefix $(GNL_DIR), $(GNL_FILES)) \
+              $(MAIN_FILE)
+
+OBJS        = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(SRC_OBJS)
-		$(CC) $(FLAGS) main.c
-		$(CC) $(FLAGS) $(SRC_OBJS) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(MLX_FLAGS) -o $(NAME)
+
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	$(RM) -f $(SRC_OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	$(RM) -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
