@@ -148,7 +148,14 @@ char	**read_map(char *path, int argc)
 
 int	is_validpath(char *path)
 {
-	if (strlcmp(path, "./maps/", len("./maps/")) != 0)
+	int	len_path;
+
+	len_path = len(path);
+	if (len_path < 4)
+		return (-1);
+	if (ft_strlcmp(path, "./maps/", 7) != 0)
+		return (-1);
+	if (ft_strlcmp(path + len_path - 4, ".ber", 4) != 0)
 		return (-1);
 	return (1);
 }

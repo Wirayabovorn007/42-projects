@@ -14,7 +14,7 @@ char	**read_map(char *path, int argc);
 char	**map_err(char *type);
 void	free_arr(char **arr);
 int		len(char *str);
-int		strlcmp(char *s1, char *s2, int max);
+int		ft_strlcmp(char *s1, char *s2, int max);
 int		is_validpath(char *path);
 void	print_err(char *err);
 

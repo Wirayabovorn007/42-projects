@@ -11,7 +11,7 @@ int len(char *str)
 	return (i);
 }
 
-int	strlcmp(char *s1, char *s2, int max)
+int	ft_strlcmp(char *s1, char *s2, int max)
 {
 	int	i;
 
