@@ -30,6 +30,18 @@ char	**map_err(char *type)
 	write(2, "\n", 1);
 	return NULL;
 }
+char	**map_errwf(char *type, char **arr)
+{
+	free_arr(arr);
+	write(2,"Error\n", 6);
+	if (type)
+	{
+		write(2, "Type: ", 6);
+		write(2, type, len(type));
+	}
+	write(2, "\n", 1);
+	return NULL;
+}
 
 int	validmap_cond1(char *line)
 {
@@ -99,19 +111,22 @@ char **validate_map(char **arr, int line_count)
 
 	t = arr;
 	if (line_count < 1 || !t || !t[0])
-		map_err("Map is empty.");
+	{
+		free_arr(arr);
+		map_errwf("Map is empty.", arr);
+	}
 	row = 0;
 	len_fline = len(t[row]);
 	if ((validmap_cond1(t[0]) != 1) || // the first line must include only wall (1)
 			(validmap_cond1(t[line_count - 1]) != 1) // the last line must include only wall (1)
 				|| (validmap_cond3(t) != 1)) // map must contain 1 == exit, 1 == starting point, at least 1 >= collectible
-		return map_err("Invalid border or components.");
+		return map_errwf("Invalid border or components.", arr);
 	while (t[row])
 	{
 		if (len(t[row]) != len_fline) // all lines must have the same length
-			return (map_err("Invalid line length."));
+			return (map_errwf("Invalid line length.", arr));
 		if (validmap_cond4(t[row]) != 1) // first and last char of every line must be 1
-			return (map_err("Invalid side borders."));
+			return (map_errwf("Invalid side borders.", arr));
 		row++;
 	}
 	return (arr);
@@ -133,7 +148,10 @@ char	**read_map(char *path, int argc)
 	i = 0;
 	line_arr = malloc(sizeof(char *) * (line_count + 1));
 	if (!line_arr)
+	{
+		close(fd);
 		return (map_err("Memory allocation."));
+	}
 	while ((line = get_next_line(fd)) != NULL)
 	{
 		line_len = len(line);
@@ -143,9 +161,7 @@ char	**read_map(char *path, int argc)
 	}
 	line_arr[i] = NULL;
 	close(fd);
-	if (!validate_map(line_arr, line_count))
-		free_arr(line_arr);
-	return (line_arr);
+	return (validate_map(line_arr, line_count));
 }
 
 int	is_validpath(char *path)
