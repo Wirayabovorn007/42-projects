@@ -1,11 +1,11 @@
 
-#include "../include/so_long.h"
+#include "./include/so_long.h"
 
 int	main(void)
 {
 	char	**map;
 
-	map = read_map("../maps/map.ber");
+	map = read_map("./maps/map.ber");
 	if (!map)
 	{
 		free_arr(map);

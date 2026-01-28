@@ -6,11 +6,11 @@
 /*   By: wiraya <wiraya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:17:07 by wiboonpr          #+#    #+#             */
-/*   Updated: 2026/01/28 10:51:14 by wiraya           ###   ########.fr       */
+/*   Updated: 2026/01/28 15:14:06 by wiraya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/get_next_line.h"
+#include "./get_next_line.h"
 
 static char	*read_until_nl(int fd, char *stash)
 {
