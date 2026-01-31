@@ -61,7 +61,7 @@ void	init_game(char **map)
 	game.wall_img = mlx_xpm_file_to_image(game.mlx_ptr, "assets/wall.xpm", &w, &h);
 	game.floor_img = mlx_xpm_file_to_image(game.mlx_ptr, "assets/map_bg.xpm", &w, &h);
 	game.coin_img = mlx_xpm_file_to_image(game.mlx_ptr, "assets/collectible.xpm", &w, &h);
-	game.player_img = mlx_xpm_file_to_image(game.mlx_ptr, "assets/player.xpm", &w, &h);
+	game.player_img = mlx_xpm_file_to_image(game.mlx_ptr, "assets/player-d-1.xpm", &w, &h);
 	game.exit_img = mlx_xpm_file_to_image(game.mlx_ptr, "assets/exit.xpm", &w, &h);
 	if (!game.wall_img || !game.floor_img || !game.coin_img || !game.player_img || !game.exit_img)
 		return (err_free(game.map));
