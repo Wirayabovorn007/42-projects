@@ -4,6 +4,13 @@
 # define SO_LONG_H
 
 #define BUFFER_SIZE 1024
+#define IMG_PX 64
+#define IMG_WALL "/assets/wall.xpm"
+#define IMG_EXIT "/assets/exit.xpm"
+#define IMG_COIN "/assets/collectible.xpm"
+#define IMG_PLAYER "/assets/player.xpm"
+#define IMG_MAP "/assets/map_bg.xpm"
+#define IMG_START "/assets/start.xpm"
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -17,6 +24,16 @@ typedef struct s_player{
 	int	total_collect;
 } s_player;
 
+typedef struct s_game
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	int		map_h;
+	int		map_w;
+	void	*img_player;
+} s_game;
+
+
 char	**read_map(char *path, int argc);
 char	**map_err(char *type);
 char	**map_errwf(char *type, char **arr);
@@ -25,7 +42,7 @@ int		len(char *str);
 int		ft_strlcmp(char *s1, char *s2, int max);
 int		is_validpath(char *path);
 void	print_err(char *err);
-void	init_game(char **map,char *path);
+void	init_game(char **map);
 int		get_line_count(char *path);
 
 
