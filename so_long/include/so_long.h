@@ -9,6 +9,10 @@
 # define KEY_A 97
 # define KEY_S 115
 # define KEY_D 100
+# define ARROW_U 65362
+# define ARROW_D 65364
+# define ARROW_L 65361
+# define ARROW_R 65363
 
 #include <unistd.h>
 #include <stdlib.h>

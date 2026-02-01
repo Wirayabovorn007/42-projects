@@ -74,12 +74,16 @@ int	validmap_cond3(char **map)
 		col = -1;
 		while (map[row][++col])
 		{
-			if (map[row][col] == 'P')
+			if (map[row][col] == '0' || map[row][col] == '1')
+				continue ;
+			else if (map[row][col] == 'P')
 				st++;
-			if (map[row][col] == 'E')
+			else if (map[row][col] == 'E')
 				ei++;
-			if (map[row][col] == 'C')
+			else if (map[row][col] == 'C')
 				collect++;
+			else
+				return (0);
 		}
 	}
 	return ((st == 1) && (ei == 1) && (collect >= 1));
@@ -110,7 +114,7 @@ char **validate_map(char **arr, int line_count)
 	int		len_fline;
 
 	t = arr;
-	if (line_count < 1 || !t || !t[0])
+	if (line_count <= 1 || !t || !t[0])
 	{
 		free_arr(arr);
 		map_errwf("Map is empty.", arr);
@@ -143,8 +147,8 @@ char	**read_map(char *path, int argc)
 
 	fd = open(path, O_RDONLY);
 	line_count = get_line_count(path);
-	if (fd < 0 || line_count < 0 || argc != 2)
-		return (map_err("Empty file or open/read error."));
+	if (fd < 0 || line_count <= 0 || argc != 2)
+		return (map_err("Empty file or open/read error, check your file path."));
 	i = 0;
 	line_arr = malloc(sizeof(char *) * (line_count + 1));
 	if (!line_arr)
