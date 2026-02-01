@@ -3,8 +3,7 @@
 # ifndef SO_LONG_H
 # define SO_LONG_H
 
-#define BUFFER_SIZE 1024
-#define IMG_PX 64
+#define IMG_PX 32
 
 #include <unistd.h>
 #include <stdlib.h>
