@@ -54,12 +54,13 @@ char	**map_errwf(char *type, char **arr);
 void	free_arr(char **arr);
 int		len(char *str);
 int		ft_strlcmp(char *s1, char *s2, int max);
-int		is_validpath(char *path);
+int		is_valid_file_path(char *path);
 void	print_err(char *err);
 void	init_game(char **map);
 int		get_line_count(char *path);
 void	game_control(s_game *game);
 void	render_map(s_game *game);
+int		is_valid_path(char **map);
 int		close_game(s_game *game);
 
 #endif

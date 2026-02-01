@@ -117,7 +117,7 @@ char **validate_map(char **arr, int line_count)
 	if (line_count <= 1 || !t || !t[0])
 	{
 		free_arr(arr);
-		map_errwf("Map is empty.", arr);
+		return map_errwf("Map is empty.", arr);
 	}
 	row = 0;
 	len_fline = len(t[row]);
@@ -133,6 +133,8 @@ char **validate_map(char **arr, int line_count)
 			return (map_errwf("Invalid side borders.", arr));
 		row++;
 	}
+	if (is_valid_path(arr) == 0)
+		return map_errwf("Map contains invalid path.", arr);
 	return (arr);
 }
 
@@ -168,7 +170,7 @@ char	**read_map(char *path, int argc)
 	return (validate_map(line_arr, line_count));
 }
 
-int	is_validpath(char *path)
+int	is_valid_file_path(char *path)
 {
 	int	len_path;
 

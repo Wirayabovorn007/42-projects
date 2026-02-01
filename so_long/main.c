@@ -7,7 +7,7 @@ int	main(int argc, char *argv[])
 
 	if (argc == 2)
 	{
-		if (is_validpath(argv[1]) != 1)
+		if (is_valid_file_path(argv[1]) != 1)
 		{
 			print_err("Invalid file path  or file extension.");
 			return EXIT_FAILURE;
