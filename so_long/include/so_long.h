@@ -56,6 +56,6 @@ void	init_game(char **map);
 int		get_line_count(char *path);
 void	game_control(s_game *game);
 void	render_map(s_game *game);
-
+int		close_game(s_game *game);
 
 #endif

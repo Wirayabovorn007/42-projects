@@ -86,6 +86,5 @@ void	init_game(char **map)
 	render_map(&game);
 	game_control(&game);
 	mlx_loop(game.mlx_ptr);
-	free_arr(game.map);
 }
 

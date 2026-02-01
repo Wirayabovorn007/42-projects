@@ -8,7 +8,8 @@ MLX_FLAGS	= -L$(MLX_PATH) -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
 
 SRCS		= main.c \
 			  src/game_init.c \
-			  src/start_game.c \
+			  src/close_game.c \
+			  src/game_ctrl.c \
 			  src/map_init.c \
 			  src/utils.c \
 			  src/get_next_line/get_next_line.c \

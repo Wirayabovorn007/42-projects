@@ -31,7 +31,7 @@ void	move(int x, int y, s_game *game, char di)
 		if (game->player.collect == game->total_colectible)
 		{
 			ft_printf("Congrat! You have found all the skulls in the game\n");
-			//close_game(game);
+			close_game(game);
 			return ;
 		}
 		else
@@ -69,8 +69,8 @@ void	move_player(char di, s_game *game)
 
 int	key_press(int keycode, s_game *game)
 {
-	// if (keycode == KEY_ESC)
-	// 	;// close game
+	if (keycode == KEY_ESC)
+		close_game(game);
 	if (keycode == KEY_W)
 		move_player('u', game);
 	if (keycode == KEY_A)
@@ -84,6 +84,8 @@ int	key_press(int keycode, s_game *game)
 
 int	key_release(int keycode, s_game *game)
 {
+	(void)keycode;
+	(void)game;
 	return (0);
 }
 
@@ -91,4 +93,5 @@ void	game_control(s_game *game)
 {
 	mlx_hook(game->win_ptr, 2, 1L<<0, &key_press, game);
 	mlx_hook(game->win_ptr, 3, 1L<<1, &key_release, game);
+	mlx_hook(game->win_ptr, 17, 0, close_game, game);
 }
