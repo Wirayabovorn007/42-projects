@@ -24,7 +24,15 @@ char	**duplicate_map(char **map)
 		return (NULL);
 	i = -1;
 	while (map[++i])
+	{
 		dup[i] = ft_strdup(map[i]);
+		if (!dup)
+		{
+			free_arr(dup);
+			return NULL;
+		}
+
+	}
 	dup[i] = NULL;
 	return (dup);
 }
