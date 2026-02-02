@@ -61,5 +61,7 @@ void	render_map(t_game *game);
 int		is_valid_path(char **map);
 int		close_game(t_game *game);
 void	*ft_memset(void *str, int c, size_t n);
+int		key_press(int keycode, t_game *game);
+int		key_release(int keycode, t_game *game);
 
 #endif

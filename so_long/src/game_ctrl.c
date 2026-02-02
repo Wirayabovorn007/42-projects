@@ -1,20 +1,29 @@
-
 #include "../include/so_long.h"
 
-void	rerender_map(t_game *game, int row, int col, char curr_pos, char di)
+void	rerender_map(t_game *game, char curr_pos, char di)
 {
+	int	row;
+	int	col;
+
+	row = game->player.y;
+	col = game->player.x;
 	if (curr_pos == '0' || curr_pos == 'C')
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor_img, col * IMG_PX, row * IMG_PX);
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->floor_img, col * IMG_PX, row * IMG_PX);
 	if (curr_pos == 'P')
 	{
 		if (di == 'u')
-			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img_u, col * IMG_PX, row * IMG_PX);
+			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+				game->player_img_u, col * IMG_PX, row * IMG_PX);
 		if (di == 'd')
-			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img_d, col * IMG_PX, row * IMG_PX);
+			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+				game->player_img_d, col * IMG_PX, row * IMG_PX);
 		if (di == 'l')
-			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img_l, col * IMG_PX, row * IMG_PX);
+			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+				game->player_img_l, col * IMG_PX, row * IMG_PX);
 		if (di == 'r')
-			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img_r, col * IMG_PX, row * IMG_PX);
+			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+				game->player_img_r, col * IMG_PX, row * IMG_PX);
 	}
 }
 
@@ -24,7 +33,7 @@ void	move(int x, int y, t_game *game, char di)
 
 	next_move = game->map[y][x];
 	if (next_move == '1')
-        return ;
+		return ;
 	if (next_move == 'E')
 	{
 		if (game->player.collect == game->total_colectible)
@@ -39,11 +48,11 @@ void	move(int x, int y, t_game *game, char di)
 	if (next_move == 'C')
 		game->player.collect += 1;
 	game->map[game->player.y][game->player.x] = '0';
-	rerender_map(game, game->player.y, game->player.x, '0', di);//rerender only old P point
+	rerender_map(game, '0', di);
 	game->player.x = x;
 	game->player.y = y;
 	game->map[y][x] = 'P';
-	rerender_map(game, game->player.y, game->player.x, 'P', di);//rerender only new P point
+	rerender_map(game, 'P', di);
 }
 
 void	move_player(char di, t_game *game)
@@ -66,31 +75,9 @@ void	move_player(char di, t_game *game)
 	ft_printf("You moved %d times\n", game->move_count);
 }
 
-int	key_press(int keycode, t_game *game)
-{
-	if (keycode == KEY_ESC)
-		close_game(game);
-	if (keycode == KEY_W || keycode == ARROW_U)
-		move_player('u', game);
-	if (keycode == KEY_A || keycode == ARROW_L)
-		move_player('l', game);
-	if (keycode == KEY_S || keycode == ARROW_D)
-		move_player('d', game);
-	if (keycode == KEY_D || keycode == ARROW_R)
-		move_player('r', game);
-	return (0);
-}
-
-int	key_release(int keycode, t_game *game)
-{
-	(void)keycode;
-	(void)game;
-	return (0);
-}
-
 void	game_control(t_game *game)
 {
-	mlx_hook(game->win_ptr, 2, 1L<<0, &key_press, game);
-	mlx_hook(game->win_ptr, 3, 1L<<1, &key_release, game);
+	mlx_hook(game->win_ptr, 2, 1L << 0, &key_press, game);
+	mlx_hook(game->win_ptr, 3, 1L << 1, &key_release, game);
 	mlx_hook(game->win_ptr, 17, 0, close_game, game);
 }
