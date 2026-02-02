@@ -1,7 +1,6 @@
 NAME		= so_long
 CC			= cc
-CFLAGS		= 
-# -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror
 MLX_PATH	= minilibx-linux
 MLX_LIB		= $(MLX_PATH)/libmlx_Linux.a
 MLX_FLAGS	= -L$(MLX_PATH) -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz

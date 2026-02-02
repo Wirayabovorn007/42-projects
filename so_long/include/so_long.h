@@ -62,5 +62,6 @@ void	game_control(s_game *game);
 void	render_map(s_game *game);
 int		is_valid_path(char **map);
 int		close_game(s_game *game);
+void	*ft_memset(void *str, int c, size_t n);
 
 #endif

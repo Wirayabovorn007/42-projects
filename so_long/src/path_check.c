@@ -4,6 +4,11 @@ void	flood_fill(char **map, int x, int y)
 {
 	if (map[y][x] == '1' || map[y][x] == 'F')
 		return ;
+	if (map[y][x] == 'E')
+	{
+		map[y][x] = 'F';
+		return ;
+	}
 	map[y][x] = 'F';
 	flood_fill(map, x + 1, y);
 	flood_fill(map, x - 1, y);

@@ -20,7 +20,6 @@ void	rerender_map(s_game *game, int row, int col, char curr_pos, char di)
 
 void	move(int x, int y, s_game *game, char di)
 {
-	char	**map;
 	char	next_move;
 
 	next_move = game->map[y][x];
