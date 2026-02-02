@@ -34,9 +34,8 @@ char	**duplicate_map(char **map)
 		if (!dup)
 		{
 			free_arr(dup);
-			return NULL;
+			return (NULL);
 		}
-
 	}
 	dup[i] = NULL;
 	return (dup);

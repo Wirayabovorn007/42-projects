@@ -63,5 +63,6 @@ int		close_game(t_game *game);
 void	*ft_memset(void *str, int c, size_t n);
 int		key_press(int keycode, t_game *game);
 int		key_release(int keycode, t_game *game);
+char	**closefd_w_err(int fd, char *t);
 
 #endif
