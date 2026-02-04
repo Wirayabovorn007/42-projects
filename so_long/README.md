@@ -59,9 +59,4 @@ The map must be rectangular, surrounded by walls, and contain a valid path to wi
 - [imagemagick uses to convert .png file to .xpm](https://itsfoss.com/install-imagemagick-ubuntu/)
 
 
-## AI Usage
-Artificial Intelligence was used in this project for the following tasks:
-- Code Review: Used to analyze memory leaks (Valgrind errors), fix logic in the flood_fill algorithm for path validation.
-
-- Concept Explanation: Provided clarification on MiniLibX event hooks, window management (Expose events), and proper resource destruction order.
 
