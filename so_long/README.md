@@ -10,7 +10,7 @@
 ### Install Minilibx
 This project uses MiniLibX for Linux. Before compiling, you must ensure the necessary system dependencies are installed on your machine.
 ```Bash
-sudo apt-get install gcc make xorg libxext-dev libbsd-dev
+sudo apt-get install gcc make xorg libxext-dev libbsd-dev zlib1g-dev
 ```
 ### Compilation
 The project uses a `Makefile` for compilation. To compile the executable, run the following command at the root of the repository:
@@ -48,11 +48,16 @@ The map must be a .ber file containing the following characters:
 
 The map must be rectangular, surrounded by walls, and contain a valid path to win.
 ## Resources
+### Tutorial
 - [So_long Tutorial](https://medium.com/@digitalpoolng/42-so-long-and-thanks-for-all-the-fish-building-your-first-2d-game-in-c-ccd24034bc8b)
 - [Sample game](https://www.youtube.com/watch?v=tNngHctUoaY)
 - [Tutorial Github](https://github.com/mewmewdevart/so_long)
 - [MinilibX book](https://42-cursus.gitbook.io/guide/minilibx)
 - [MinilibX docs](https://harm-smits.github.io/42docs/libs/minilibx/events.html)
+### Tools
+- [xev (X event) for create a window and send events to output, this uses to find keysym of X11](https://linux.die.net/man/1/xev)
+- [imagemagick uses to convert .png file to .xpm](https://itsfoss.com/install-imagemagick-ubuntu/)
+
 
 ## AI Usage
 Artificial Intelligence was used in this project for the following tasks:

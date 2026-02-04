@@ -1,4 +1,3 @@
-
 #include "../include/so_long.h"
 
 int	close_game(t_game *game)
